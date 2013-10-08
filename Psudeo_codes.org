@@ -1,0 +1,90 @@
+Algorithms
+* Dynamic Programming 
+** Mninimum NO of Coins To form a Sum
+C(S) = No of Coins for sum S
+C(S) = min{C(S - V_i)} + 1
+** Maximum Contiguous Subsequence Sum
+** Longest Increasing Sequence
+L(i) = Max(L(j)) + 1 for all j<i and A[i]>A[j]
+** Cutting a Rod -> each length cut has a differnt price
+B(i) = best price for cutting length i
+B(i) = min{V(k) + B(i-k)} where k are all given length
+** Longest Palindrom Subsequence
+LP(i, j) = 1 if i==j
+LP(i, j) = 1 if j==i+1 A[i] != A[j] else LP(i, j) = 2 
+Lp(i, j) = L(i+1, j-1) if A[i] == A[j] else max(LP(i+1,j), LP(i, j+1))
+** Matrix Chain Multiplication
+Ans(i, j) = Min(Ans(i, k), Ans(k+1, j) + R[i]*R[k]*R[j])
+** knapsack Problem
+W(i, b) ith element is included in a sack of size b
+b is the benifit of individual items
+M is the size of knapsack
+W(i, b) = W(i-1, b) if w(i) > M where b varies from 0 to M
+W(i, b) = Max(W(i-1, b-w(i)) + c(i), W(i-1, b))
+** Optimal Binary Search with minimum Access Time
+Given numbers w1, w2 ..... wn with probality p1, p2, .. pn
+of their occurences.
+Create a binary tree with minimum access time
+Where cost of search equat = depth*individual_probablity
+OBST(i, j) = Optimal Binary search Tree from i to j index
+OBST(i, J) = Min{OBST(i, r-1) + OBST(r+1, j) + Sum of all Probabilities}
+
+** Balanced Partition of Array with minimum differnce in sum
+Given a set of positive integers. divide it into such that diff of there
+sum is minimum (all are positive integer) 
+A(i) = ith element
+P(i, j) = 1 where 1 to i elements can form a sum j 0 otherwise
+P(i, j) = max(P(i - 1,j), P(i - 1, j - A(i))
+2*S = Sum of A(i)
+minimum i such that P(n, S - i) = 1
+ 
+** Maximum Sub Matrix Sum 
+Given a size of sub-matrix find the sub-matrix with maximum sum 
+m, n, k 
+n = mXn orginal matrix
+k = kXk submatrix with maximum size
+S(i, j) = Sum of ith coloumn with j to j + k - 1 coloumn
+S(i, j) = S(i, j - 1) - A(i, j-1) + A(i, j+k-1)
+KSum(i, j) =Sum of a square matrix with left most top element as A(i, j)
+KSum(i, j) = KSum(i-1, j) + S(i + k - 1, j) - S(i-1, j) 
+
+** Longest Common Sub-Sequence
+L(i, j) = Longest Common Subsequence 1-i for string1 and 1-j for string2
+L(i, j) = max of(L(i-1, j), (i, j-1)) if A(i)!=A(j)
+        = L(i-1, j-1) + 1 else
+      
+** All Pair Shortest Path
+d(i, j) = minimum  distance between i , j
+d(i, j) = min(d(i, j), d(i, k) + d(k, j)) for all k
+** Travelling Salesman Problem
+*** Kruskals 
+   Minimum Edges and then start picking edges till we cover all the vertices
+*** Dijkstra's algorithm
+
+* Back Tracking
+** Find a path in a grid 
+move right check safe 
+move down check safe
+move left check safe
+move up check safe
+safe function -> if M[i][j]= 1 and m>i>=0 and n>j>=0 true false else
+solve_func -> x, y = m-1, n-1 and safe return true
+      -> safe(x, y) solve[x][y]=1 go to right, if safe return true
+                                  else go to bottom left top return true
+				  else solve[x][y]=0 return false
+
+
+
+* Diameter of the Binary Tree
+Maximum Distance between the modes of the tree
+Does it always pass through rootnode ? NO
+Height(tree* t) -> if(t null) return 0
+                   else max(1+left_tree, 1+ right_tree)
+Tree diameter -> max(left_height + right_height + 1, Tree diameter left_tree, Tree diameter right_tree)
+
+
+* 3 Sum Problem
+Given an array find 3 no such that sum of the no.s is 0
+Naive Algorithm O(n^3)
+Better Solution a + b + c = 0
+Clue c = -(a+b)
