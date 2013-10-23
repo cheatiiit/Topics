@@ -1,0 +1,44 @@
+* Greedy
+** Dijk
+** Shortest Path
+** Prims for Adjancy List
+** Prims Mimimum Spanning List
+** Huffman Coding
+** Kruskal Minimum Spanning Tree
+** Activity Selection
+* Dynamic Programming
+** Maximum Product cutting 
+** Longest Airthmetic Progression
+	*** let j be middle element, i = j-1 and k = j + 1, if s[i] + s[k] == 2*s[j] then ap else s[i] + s[k] > 2*s[j] i-- else k++
+	*** L[i][j] = L[j][k] +  1 where L[i][j] = length of largest AP with A[i] and A[j] as the first two elements of the AP
+** Assembly line scheduling
+	*** T1[i] = Time taken on assemble line 1 at ith station, T2[i] = time on assembly line 2 ith station
+	*** T1[0] = a[0][0] + entrance[0]
+	*** T2[0] = a[1][0] + entrance[1]
+	*** T1[i] = min(T1[i-1] + a[0][i], T2[i-1] + transfer[1][i] + a[0][i] )
+	*** T2[i] = min(T2[i-1] + a[1][i], T1[i-1] + transfer[0][i] + a[1][i] )
+	*** min(T1[n] +exit[0], T2[n], exit[1])
+** Interleaving of Strings
+	*** http://www.geeksforgeeks.org/check-whether-a-given-string-is-an-interleaving-of-two-other-given-strings-set-2/
+** Word Break
+** Dice Throw
+	*** N[i][j] wys of gtting sum j using i dices
+	*** N[i][j] += N[i][j-k] where k varies from 0  to min(j, M) M is maximum walue on dice
+** Optimal Strategy for game
+	*** Max(Vi + Min(F(i+2, j), F(i+1, j-1)), Vj + Min(F(i+1, j-1), F(i,j-2))) 
+** Minimum Insertions to Form a palindrome
+	*** if L[i][j] = minimum inst for string i->j
+	*** L[i][j] = L[i-1][j-1] if S[i] = s[j] else min(L[i-1][j], L[i][j-1])+1
+** Maximum Independent Set in a TREE
+	*** Max(IS(right_child)+IS(left_child), 1 + IS(Right_grand_child) + IS(left_grand_child))
+** Box Stacking problem
+1) Generate all 3 rotations of all boxes. The size of rotation array becomes 3 times the size of original array. For simplicity, we consider depth as always smaller than or equal to width.
+
+2) Sort the above generated 3n boxes in decreasing order of base area.
+
+3) After sorting the boxes, the problem is same as LIS with following optimal substructure property.
+MSH(i) = Maximum possible Stack Height with box i at top of stack
+MSH(i) = { Max ( MSH(j) ) + height(i) } where j < i and width(j) > width(i) and depth(j) > depth(i).
+If there is no such j then MSH(i) = height(i)
+
+	4) To get overall maximum height, we return max(MSH(i)) where 0 < i < n
