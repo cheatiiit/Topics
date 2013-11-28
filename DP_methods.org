@@ -48,3 +48,15 @@ T[i][j] = True if T[i+1][j-1] is true and A[i]==A[j]
 *** Egg Drop Problem
 http://www.geeksforgeeks.org/dynamic-programming-set-11-egg-dropping-puzzle/
 
+*** Longest Biotonic Sequence
+LIS + DIS -1
+*** Palindrome Partition
+Forming subset such that all the elements are also palindromes
+if i->j is palindrome return 0 else for k Min{Palin(i, k) + Palin(k+1, j) + 1}
+*** Maximum Product Rope Cutting
+Minimum 1 cute should be der
+**** max_value = Max((i-j)*j, R[i-1]*j, max_value)
+*** Largest Arithemetic Progression
+set a j and choose two points i and k at equal distance from left and right of j;
+if this forms an AP the L[i][j]=L[j][k]+1; find maximum of all L[i][j]
+*** Interleaving of two strings
