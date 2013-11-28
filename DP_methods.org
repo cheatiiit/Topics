@@ -1,5 +1,5 @@
 * Dynamic Programming Methods
-** Definetions go here:
+** Definitions go here:
 Dynamic  Programming has two techniques
 Bottom-Up -> Memorization 
 Top-Down ->Tabulation
@@ -26,5 +26,25 @@ s[i][j]=0
 (1 1; 1 0)^n = (F_n+1 F_n; F_n F_n-1)
 ***** Time O(log(n))
 ***** Space O(1)
-
+*** Coin Exchange
+    Given an M and infinite no of some coins. Find the ways to get M
+    t[i][j] value I with the last coin 
+    t[i][j-1] + t[i-V[i]][j]
+*** Binomial Coefficients
+    C[n][k] = c[n-1][k-1]+c[n-1][k]
+*** Minimum Number of Jumps 
+Given an array of integers 
+where each element represents 
+the max number of steps that can
+ be made forward from that element. 
+Write a function to return the minimum 
+number of jumps to reach the end of the array 
+(starting from the first element). 
+If an element is 0, then cannot move through that element.
+*** Longest Increasing Substring without repeating characters
+prev_occ_of_char; if current_carr already visted the change the start of the string to prev_occ_of_char++
+*** Longest Palindrome Sequence
+T[i][j] = True if T[i+1][j-1] is true and A[i]==A[j]
+*** Egg Drop Problem
+http://www.geeksforgeeks.org/dynamic-programming-set-11-egg-dropping-puzzle/
 
