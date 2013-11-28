@@ -1,0 +1,9 @@
+* Dynamic Programming Methods
+
+** Finding a sqaure all 1's matrix inside a given matrix
+s[i][j] is the size of the matrix with all 1's such that M[i][j] is the rightmost bottom corner of the given matrix 
+then 
+if(M[i][j]==1)
+s[i][j] = min(s[i-1][j], s[i-1][j-1], s[i][j-1])+1
+else
+s[i][j]=0
