@@ -1,9 +1,27 @@
 * Dynamic Programming Methods
 
-** Finding a sqaure all 1's matrix inside a given matrix
+** Finding a sqaure-submatrix with all 1's inside a given matrix
 s[i][j] is the size of the matrix with all 1's such that M[i][j] is the rightmost bottom corner of the given matrix 
 then 
 if(M[i][j]==1)
 s[i][j] = min(s[i-1][j], s[i-1][j-1], s[i][j-1])+1
 else
 s[i][j]=0
+
+** Fibonaci Number Methods
+*** Method - 1
+Recursion
+**** Time Complexity O(T(n) = T(n-1)+T(n-2))
+**** Space Complexity O(n) if the stack is considered O(1) Else
+Dynamic Programming
+**** Time O(n)
+**** Space O(n)
+Space Optmizied method (for loop without array)
+**** Time O(n)
+**** Space O(1)
+Use of Power Matrix
+(1 1; 1 0)^n = (F_n+1 F_n; F_n F_n-1)
+**** Time O(log(n))
+**** Space O(1)
+
+
